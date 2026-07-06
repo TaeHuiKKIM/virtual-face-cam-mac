@@ -1,8 +1,0 @@
-[project]
-name = "image-stage-mac"
-version = "0.1.0"
-description = "Dependency-free macOS browser UI for presenting local images"
-readme = "README.md"
-requires-python = ">=3.9"
-license = { text = "MIT" }
-dependencies = []

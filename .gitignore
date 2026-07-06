@@ -6,3 +6,8 @@ dist/
 build/
 *.egg-info/
 .DS_Store
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+native/VirtualFaceCamMac.xcodeproj/project.xcworkspace/xcuserdata/
+native/VirtualFaceCamMac.xcodeproj/xcuserdata/

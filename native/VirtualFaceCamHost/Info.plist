@@ -6,15 +6,15 @@
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleExecutable</key>
-  <string>ImageStage</string>
+  <string>$(EXECUTABLE_NAME)</string>
   <key>CFBundleIconFile</key>
-  <string>ImageStage</string>
+  <string>VirtualFaceCam</string>
   <key>CFBundleIdentifier</key>
-  <string>com.taehui.imagestage</string>
+  <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundleName</key>
-  <string>Image Stage</string>
+  <string>Virtual Face Cam</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
@@ -22,6 +22,10 @@
   <key>CFBundleVersion</key>
   <string>1</string>
   <key>LSMinimumSystemVersion</key>
-  <string>11.0</string>
+  <string>13.0</string>
+  <key>NSSystemExtensionUsageDescription</key>
+  <string>Virtual Face Cam installs a camera extension so selected images can appear as a macOS camera.</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Virtual Face Cam needs camera permission for its camera extension workflow.</string>
 </dict>
 </plist>

@@ -1,0 +1,41 @@
+name: VirtualFaceCamMac
+options:
+  projectFormat: "15.0"
+  xcodeVersion: "15.4"
+  bundleIdPrefix: com.taehui
+  deploymentTarget:
+    macOS: "13.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+targets:
+  VirtualFaceCam:
+    type: application
+    platform: macOS
+    sources:
+      - VirtualFaceCamHost
+      - Shared
+    resources:
+      - Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.taehui.virtualfacecam
+        INFOPLIST_FILE: VirtualFaceCamHost/Info.plist
+        CODE_SIGN_ENTITLEMENTS: VirtualFaceCamHost/Host.entitlements
+    dependencies:
+      - target: VirtualFaceCamCameraExtension
+        embed: true
+  VirtualFaceCamCameraExtension:
+    type: system-extension
+    platform: macOS
+    sources:
+      - VirtualFaceCamCameraExtension
+      - Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.taehui.virtualfacecam.CameraExtension
+        INFOPLIST_FILE: VirtualFaceCamCameraExtension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: VirtualFaceCamCameraExtension/CameraExtension.entitlements
+        SKIP_INSTALL: true

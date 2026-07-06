@@ -1,81 +1,141 @@
-# Image Stage for Mac
+# Virtual Face Cam Mac
 
-Mac에서 이미지나 이미지 폴더를 크게 띄우는 아주 단순한 앱입니다.
-OBS, 가상 카메라, pyvirtualcam 설치가 필요 없습니다.
+OBS, pyvirtualcam 없이 **앱 자체만으로 macOS 카메라 목록에 나타나는 가상 웹캠**을
+만드는 네이티브 macOS 프로젝트입니다.
 
-## 이 앱을 쓰면 좋은 경우
+목표는 Zoom, Teams, Chrome, FaceTime 같은 앱의 카메라 선택 목록에서
+`Virtual Face Cam`을 직접 선택하게 만드는 것입니다.
 
-- 이미지를 전체 화면으로 띄우고 싶을 때
-- 폴더 안 이미지를 슬라이드쇼로 보여주고 싶을 때
-- Zoom/Teams에서 **화면 공유**로 보여주면 충분할 때
-- OBS 설치 없이 간단히 쓰고 싶을 때
+## 현재 구현된 것
 
-## 이 앱으로 안 되는 것
+- SwiftUI host app
+- CoreMediaIO Camera Extension
+- Host app에서 이미지 선택
+- App Group 공유 폴더에 이미지와 설정 저장
+- Camera Extension이 이미지를 읽어서 `CVPixelBuffer` 프레임 생성
+- `CMIOExtensionStream`으로 1280x720 30fps 프레임 송출
+- 이미지가 없을 때 placeholder 프레임 송출
+- Xcode 프로젝트 생성 및 unsigned Debug build 검증
 
-이 앱은 Mac의 카메라 목록에 나타나는 웹캠 장치가 아닙니다.
-Zoom, Teams, Chrome에서 카메라로 선택하려면 아래 저장소의 Virtual Face Cam을 사용하세요.
+## 중요한 현실 제약
+
+macOS에서 진짜 카메라 장치로 보이려면 **Camera Extension은 반드시 서명된 System Extension**이어야 합니다.
+
+그래서 이 프로젝트는 일반 Python 앱처럼 더블클릭만으로 끝나는 구조가 아닙니다. 최초 설치에는 아래가 필요합니다.
+
+- Xcode
+- Apple Developer Team
+- App Group 등록
+- macOS System Extension 승인
+
+OBS 같은 외부 가상 카메라 앱은 필요 없지만, Apple 보안 정책 때문에 시스템 확장 승인과 서명은 필요합니다.
+
+## 초보자용 사용 목표
+
+완성된 signed 앱 기준 사용 흐름은 아래와 같습니다.
+
+1. `Virtual Face Cam.app`을 엽니다.
+2. **Install / Refresh Camera**를 누릅니다.
+3. macOS가 시스템 확장을 허용하라고 하면 승인합니다.
+4. 앱에서 이미지 파일을 선택합니다.
+5. Zoom, Teams, Chrome에서 카메라를 `Virtual Face Cam`으로 선택합니다.
+6. 선택한 이미지가 웹캠 화면처럼 나옵니다.
+
+## 개발자가 지금 실행하는 방법
+
+### 1. Xcode 열기
+
+```bash
+open native/VirtualFaceCamMac.xcodeproj
+```
+
+또는 프로젝트를 다시 생성하고 열려면:
+
+```bash
+./scripts/open_project.sh
+```
+
+`open_project.sh`는 `xcodegen`이 필요합니다.
+
+```bash
+brew install xcodegen
+```
+
+### 2. Team 설정
+
+Xcode에서 아래 두 target 모두 본인 Apple Developer Team을 선택하세요.
+
+- `VirtualFaceCam`
+- `VirtualFaceCamCameraExtension`
+
+App Group도 등록해야 합니다.
+
+```text
+group.com.taehui.virtualfacecam
+```
+
+자세한 내용은 [docs/signing-and-install.md](docs/signing-and-install.md)를 보세요.
+
+### 3. 앱 실행
+
+Xcode에서 `VirtualFaceCam` scheme을 선택하고 Run을 누릅니다.
+
+앱이 열리면:
+
+1. **Install / Refresh Camera** 클릭
+2. macOS System Settings에서 확장 승인
+3. 이미지 선택
+4. 영상 앱에서 `Virtual Face Cam` 선택
+
+## 컴파일만 확인하기
+
+서명 없이 코드가 빌드되는지만 확인하려면:
+
+```bash
+./scripts/build_dev.sh
+```
+
+이 명령은 `CODE_SIGNING_ALLOWED=NO`로 빌드합니다. 앱 설치와 카메라 등록 테스트는 하지 않습니다.
+
+## 폴더 구조
+
+```text
+native/
+  VirtualFaceCamHost/             # SwiftUI host app
+  VirtualFaceCamCameraExtension/  # CoreMediaIO Camera Extension
+  Shared/                         # App Group 설정/공유 모델
+  Resources/                      # 앱 아이콘
+  project.yml                     # XcodeGen 프로젝트 정의
+
+docs/
+  standalone-virtual-camera-plan.md
+  signing-and-install.md
+  legacy-image-stage.md
+```
+
+## 기존 OBS 기반 프로젝트
+
+OBS Virtual Camera를 사용해서 바로 실행하는 Python 버전은 아래 저장소에 있습니다.
 
 https://github.com/TaeHuiKKIM/virtual-face-cam
 
-## 가장 쉬운 실행 방법
+## 검증 상태
 
-### 1. 다운로드
+이 repo의 현재 상태에서 확인한 것:
 
-1. 이 GitHub 페이지에서 초록색 **Code** 버튼을 누릅니다.
-2. **Download ZIP**을 누릅니다.
-3. 받은 ZIP 파일을 압축 해제합니다.
+- Swift source typecheck 통과
+- plist/entitlements lint 통과
+- XcodeGen project 생성 통과
+- Xcode 15.4에서 project 인식 통과
+- unsigned Debug build 성공
 
-### 2. 앱 열기
+아직 확인하지 못한 것:
 
-1. `Image Stage.app`을 오른쪽 클릭합니다.
-2. **열기**를 누릅니다.
-3. 경고창이 나오면 다시 **열기**를 누릅니다.
-4. 브라우저 창이 열리면 성공입니다.
+- 실제 Apple Developer Team으로 signed build
+- macOS System Extension 승인
+- Zoom/Teams에서 실제 카메라 목록 노출
 
-터미널에서 실행하려면:
-
-```bash
-./run-mac.command
-```
-
-## 사용 방법
-
-1. **Images**에서 이미지 여러 장을 고르거나 **Folder**에서 폴더를 고릅니다.
-2. 오른쪽 큰 화면에 이미지가 보입니다.
-3. **Play**를 누르면 자동으로 넘어갑니다.
-4. **Stop**을 누르면 멈춥니다.
-5. **Fullscreen**을 누르면 전체 화면으로 볼 수 있습니다.
-6. **Blackout**은 화면을 검게 가립니다.
-7. **Mirror image**는 이미지를 좌우 반전합니다.
-
-## 필요한 것
-
-Mac과 Python 3.9 이상이 필요합니다.
-대부분의 Mac에는 `/usr/bin/python3`가 이미 들어 있습니다.
-추가 Python 패키지는 설치하지 않습니다.
-
-## 브라우저가 안 열리면
-
-터미널 창에 이런 주소가 보입니다.
-
-```text
-http://127.0.0.1:8770/
-```
-
-그 주소를 복사해서 Safari나 Chrome 주소창에 붙여넣으세요.
-
-## 앱 아이콘
-
-`Image Stage.app`에는 macOS용 앱 아이콘이 포함되어 있습니다.
-Finder, Dock, Launchpad에서 앱 아이콘으로 표시됩니다.
-
-## 앱 번들 갱신
-
-소스 파일을 수정한 뒤 앱 번들 안의 파일을 다시 채우려면:
-
-```bash
-./scripts/build_app.sh
-```
+이 마지막 단계는 Developer Team/App Group 등록이 필요합니다.
 
 ## 라이선스
 

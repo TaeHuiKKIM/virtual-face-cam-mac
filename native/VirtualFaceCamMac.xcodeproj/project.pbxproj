@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10BF9E5956EF79FA363A7710 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926929AFE8877DB4AA9A168F /* ContentView.swift */; };
+		1A8CF02EE34BDAC933B3FE8A /* SystemExtensionInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934DC55F7D7F6891956CE2E5 /* SystemExtensionInstaller.swift */; };
+		5471F1D828C1567F334282D9 /* CameraConfigStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C44491DF151B8617A245E /* CameraConfigStore.swift */; };
+		B990BC1A7DEB83B8FC7DFC3B /* VirtualFaceCamShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E646BF606E9824412981F3 /* VirtualFaceCamShared.swift */; };
+		D80D2633A7418E552E7D1875 /* VirtualFaceCamCameraExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 2BDC026ABF2E9DC4344EAEB7 /* VirtualFaceCamCameraExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E063FAB7EC28A6DF5CE18EA2 /* VirtualFaceCamShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E646BF606E9824412981F3 /* VirtualFaceCamShared.swift */; };
+		E0F30D6230F898EFD528C830 /* VirtualFaceCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC92E54FE283A16B395C33 /* VirtualFaceCamApp.swift */; };
+		EB179BE8FC5AB0F5638F9A00 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78874F0D7A09A6888801338 /* main.swift */; };
+		EDE9B2081F9AD9E29031E29D /* VirtualFaceCamProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9AE311C498F23C09A3A7E /* VirtualFaceCamProvider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAE1D8BB2DD22BF1022E88F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20460A5047EB28973343B4CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35A1EC513380F4CBF4901E3A;
+			remoteInfo = VirtualFaceCamCameraExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A683358372E3BA205E37BCC8 /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				D80D2633A7418E552E7D1875 /* VirtualFaceCamCameraExtension.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2BDC026ABF2E9DC4344EAEB7 /* VirtualFaceCamCameraExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = VirtualFaceCamCameraExtension.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7C44491DF151B8617A245E /* CameraConfigStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigStore.swift; sourceTree = "<group>"; };
+		45C8E929835A576737285CB2 /* CameraExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CameraExtension.entitlements; sourceTree = "<group>"; };
+		53F8ADDFC8AB0F9FA5E40D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6DB9AE311C498F23C09A3A7E /* VirtualFaceCamProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceCamProvider.swift; sourceTree = "<group>"; };
+		6EEC92E54FE283A16B395C33 /* VirtualFaceCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceCamApp.swift; sourceTree = "<group>"; };
+		745D4F7FD442CE9AF9143C0C /* VirtualFaceCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualFaceCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		926929AFE8877DB4AA9A168F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		934DC55F7D7F6891956CE2E5 /* SystemExtensionInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemExtensionInstaller.swift; sourceTree = "<group>"; };
+		DED19A66B6960B59E22ADCDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E78874F0D7A09A6888801338 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EE75A20AF4232E58A63BDCF8 /* Host.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Host.entitlements; sourceTree = "<group>"; };
+		F5E646BF606E9824412981F3 /* VirtualFaceCamShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceCamShared.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		29574CAE3E35571BBE08A886 = {
+			isa = PBXGroup;
+			children = (
+				6B6297402C69BF14AACC768E /* Shared */,
+				3D716314EFA3B9F669EDB4FD /* VirtualFaceCamCameraExtension */,
+				590D266FD6E07C26E4AA00A8 /* VirtualFaceCamHost */,
+				FECBD7B27CE875E51246D3DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D716314EFA3B9F669EDB4FD /* VirtualFaceCamCameraExtension */ = {
+			isa = PBXGroup;
+			children = (
+				45C8E929835A576737285CB2 /* CameraExtension.entitlements */,
+				53F8ADDFC8AB0F9FA5E40D07 /* Info.plist */,
+				E78874F0D7A09A6888801338 /* main.swift */,
+				6DB9AE311C498F23C09A3A7E /* VirtualFaceCamProvider.swift */,
+			);
+			path = VirtualFaceCamCameraExtension;
+			sourceTree = "<group>";
+		};
+		590D266FD6E07C26E4AA00A8 /* VirtualFaceCamHost */ = {
+			isa = PBXGroup;
+			children = (
+				3A7C44491DF151B8617A245E /* CameraConfigStore.swift */,
+				926929AFE8877DB4AA9A168F /* ContentView.swift */,
+				EE75A20AF4232E58A63BDCF8 /* Host.entitlements */,
+				DED19A66B6960B59E22ADCDE /* Info.plist */,
+				934DC55F7D7F6891956CE2E5 /* SystemExtensionInstaller.swift */,
+				6EEC92E54FE283A16B395C33 /* VirtualFaceCamApp.swift */,
+			);
+			path = VirtualFaceCamHost;
+			sourceTree = "<group>";
+		};
+		6B6297402C69BF14AACC768E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F5E646BF606E9824412981F3 /* VirtualFaceCamShared.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FECBD7B27CE875E51246D3DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				745D4F7FD442CE9AF9143C0C /* VirtualFaceCam.app */,
+				2BDC026ABF2E9DC4344EAEB7 /* VirtualFaceCamCameraExtension.systemextension */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2869E988D53713BC8F9A997C /* VirtualFaceCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CDD3B17DE62A4703F8A2E3C /* Build configuration list for PBXNativeTarget "VirtualFaceCam" */;
+			buildPhases = (
+				FDE3B7744F66DAAE5CB17DA5 /* Sources */,
+				A683358372E3BA205E37BCC8 /* Embed System Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41980CF5F3C361548EE5EF2A /* PBXTargetDependency */,
+			);
+			name = VirtualFaceCam;
+			packageProductDependencies = (
+			);
+			productName = VirtualFaceCam;
+			productReference = 745D4F7FD442CE9AF9143C0C /* VirtualFaceCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		35A1EC513380F4CBF4901E3A /* VirtualFaceCamCameraExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2852D2F3C676F84C185BE430 /* Build configuration list for PBXNativeTarget "VirtualFaceCamCameraExtension" */;
+			buildPhases = (
+				D0C749F5CF3EE01268E554E2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VirtualFaceCamCameraExtension;
+			packageProductDependencies = (
+			);
+			productName = VirtualFaceCamCameraExtension;
+			productReference = 2BDC026ABF2E9DC4344EAEB7 /* VirtualFaceCamCameraExtension.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20460A5047EB28973343B4CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					2869E988D53713BC8F9A997C = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					35A1EC513380F4CBF4901E3A = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7055BD247493A90FCAC543B4 /* Build configuration list for PBXProject "VirtualFaceCamMac" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 29574CAE3E35571BBE08A886;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FECBD7B27CE875E51246D3DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2869E988D53713BC8F9A997C /* VirtualFaceCam */,
+				35A1EC513380F4CBF4901E3A /* VirtualFaceCamCameraExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0C749F5CF3EE01268E554E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE9B2081F9AD9E29031E29D /* VirtualFaceCamProvider.swift in Sources */,
+				E063FAB7EC28A6DF5CE18EA2 /* VirtualFaceCamShared.swift in Sources */,
+				EB179BE8FC5AB0F5638F9A00 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE3B7744F66DAAE5CB17DA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5471F1D828C1567F334282D9 /* CameraConfigStore.swift in Sources */,
+				10BF9E5956EF79FA363A7710 /* ContentView.swift in Sources */,
+				1A8CF02EE34BDAC933B3FE8A /* SystemExtensionInstaller.swift in Sources */,
+				E0F30D6230F898EFD528C830 /* VirtualFaceCamApp.swift in Sources */,
+				B990BC1A7DEB83B8FC7DFC3B /* VirtualFaceCamShared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41980CF5F3C361548EE5EF2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35A1EC513380F4CBF4901E3A /* VirtualFaceCamCameraExtension */;
+			targetProxy = BAE1D8BB2DD22BF1022E88F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		008E12615D69A43587BBB38E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VirtualFaceCamHost/Host.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VirtualFaceCamHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taehui.virtualfacecam;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		01C5E0CD9491F805C993F87F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VirtualFaceCamCameraExtension/CameraExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VirtualFaceCamCameraExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taehui.virtualfacecam.CameraExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		253A0286EE0E30EED25638C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VirtualFaceCamHost/Host.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VirtualFaceCamHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taehui.virtualfacecam;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		71EB2904191983CF523F0525 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VirtualFaceCamCameraExtension/CameraExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VirtualFaceCamCameraExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.taehui.virtualfacecam.CameraExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		84ED649CB0FB890263DF794F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B6E22728C721B45B5CFF87FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2852D2F3C676F84C185BE430 /* Build configuration list for PBXNativeTarget "VirtualFaceCamCameraExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71EB2904191983CF523F0525 /* Debug */,
+				01C5E0CD9491F805C993F87F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4CDD3B17DE62A4703F8A2E3C /* Build configuration list for PBXNativeTarget "VirtualFaceCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253A0286EE0E30EED25638C5 /* Debug */,
+				008E12615D69A43587BBB38E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7055BD247493A90FCAC543B4 /* Build configuration list for PBXProject "VirtualFaceCamMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6E22728C721B45B5CFF87FA /* Debug */,
+				84ED649CB0FB890263DF794F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20460A5047EB28973343B4CC /* Project object */;
+}
