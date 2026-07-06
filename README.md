@@ -24,7 +24,7 @@ macOS에서 진짜 카메라 장치로 보이려면 **Camera Extension은 반드
 그래서 이 프로젝트는 일반 Python 앱처럼 더블클릭만으로 끝나는 구조가 아닙니다. 최초 설치에는 아래가 필요합니다.
 
 - Xcode
-- Apple Developer Team
+- Paid Apple Developer Program team. Xcode의 무료 `Personal Team`은 System Extension 권한을 지원하지 않습니다.
 - App Group 등록
 - macOS System Extension 승인
 
@@ -42,6 +42,15 @@ OBS 같은 외부 가상 카메라 앱은 필요 없지만, Apple 보안 정책 
 6. 선택한 이미지가 웹캠 화면처럼 나옵니다.
 
 ## 개발자가 지금 실행하는 방법
+
+먼저 Xcode 버전을 확인합니다.
+
+```bash
+xcodebuild -version
+```
+
+macOS Sequoia에서는 Xcode 15.x가 GUI에서 막힐 수 있습니다. 이 프로젝트는 Xcode 26.3에서
+unsigned build를 확인했습니다.
 
 ### 1. Xcode 열기
 
@@ -74,6 +83,10 @@ App Group도 등록해야 합니다.
 group.com.taehui.virtualfacecam
 ```
 
+주의: Xcode가 `Personal Team`으로 표시하는 무료 팀은 이 프로젝트를 실제 카메라로 설치할 수 없습니다.
+`Cannot create a Mac App Development provisioning profile ... Personal development teams ... do not support the System Extension capability.`
+오류가 나면 유료 Apple Developer Program 팀으로 전환해야 합니다.
+
 자세한 내용은 [docs/signing-and-install.md](docs/signing-and-install.md)를 보세요.
 
 ### 3. 앱 실행
@@ -96,6 +109,18 @@ Xcode에서 `VirtualFaceCam` scheme을 선택하고 Run을 누릅니다.
 ```
 
 이 명령은 `CODE_SIGNING_ALLOWED=NO`로 빌드합니다. 앱 설치와 카메라 등록 테스트는 하지 않습니다.
+
+서명 빌드를 시도하려면:
+
+```bash
+TEAM_ID=YOUR_TEAM_ID ./scripts/build_signed_dev.sh
+```
+
+예를 들어 Xcode Team ID가 `ABCDE12345`라면:
+
+```bash
+TEAM_ID=ABCDE12345 ./scripts/build_signed_dev.sh
+```
 
 ## 폴더 구조
 
@@ -126,16 +151,16 @@ https://github.com/TaeHuiKKIM/virtual-face-cam
 - Swift source typecheck 통과
 - plist/entitlements lint 통과
 - XcodeGen project 생성 통과
-- Xcode 15.4에서 project 인식 통과
-- unsigned Debug build 성공
+- Xcode 26.3에서 unsigned Debug build 성공
+- Xcode 무료 Personal Team으로 signed build가 막히는 것 확인
 
 아직 확인하지 못한 것:
 
-- 실제 Apple Developer Team으로 signed build
+- 유료 Apple Developer Program Team으로 signed build
 - macOS System Extension 승인
 - Zoom/Teams에서 실제 카메라 목록 노출
 
-이 마지막 단계는 Developer Team/App Group 등록이 필요합니다.
+이 마지막 단계는 유료 Developer Team/App Group 등록이 필요합니다.
 
 ## 라이선스
 

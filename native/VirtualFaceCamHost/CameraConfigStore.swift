@@ -3,6 +3,9 @@ import Foundation
 @MainActor
 final class CameraConfigStore: ObservableObject {
     @Published var statusText = "Choose an image to send to the virtual camera."
+    @Published var selectedImageName = "No image selected"
+    @Published var selectedImageURL: URL?
+    @Published var lastUpdatedText = "Not configured yet"
 
     private var currentConfig = VFCCameraConfig.fallback
 
@@ -40,6 +43,9 @@ final class CameraConfigStore: ObservableObject {
             let data = try JSONEncoder().encode(currentConfig)
             try data.write(to: configURL, options: [.atomic])
             statusText = "Loaded: \(sourceURL.lastPathComponent)"
+            selectedImageName = sourceURL.lastPathComponent
+            selectedImageURL = imageURL
+            lastUpdatedText = Date().formatted(date: .abbreviated, time: .shortened)
         } catch {
             statusText = "Could not save image: \(error.localizedDescription)"
         }
@@ -54,6 +60,7 @@ final class CameraConfigStore: ObservableObject {
         do {
             let data = try JSONEncoder().encode(currentConfig)
             try data.write(to: configURL, options: [.atomic])
+            lastUpdatedText = Date().formatted(date: .abbreviated, time: .shortened)
         } catch {
             statusText = "Could not update mode: \(error.localizedDescription)"
         }

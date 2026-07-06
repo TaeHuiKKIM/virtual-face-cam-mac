@@ -119,6 +119,7 @@ current-image
 ## 리스크
 
 - Apple Developer Team이 없으면 Camera Extension 설치 테스트가 막힌다.
+- 무료 Personal Team은 System Extension 권한을 지원하지 않으므로 실제 카메라 설치 테스트가 막힌다.
 - App Group ID는 Developer Portal에 등록되어 있어야 한다.
 - System Extension 최초 설치는 사용자 승인이 필요하다.
 - Zoom/Teams/Chrome은 카메라 장치 캐시가 있어 앱 재시작이 필요할 수 있다.
