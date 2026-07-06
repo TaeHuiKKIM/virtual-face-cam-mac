@@ -7,6 +7,8 @@
   <string>en</string>
   <key>CFBundleExecutable</key>
   <string>ImageStage</string>
+  <key>CFBundleIconFile</key>
+  <string>ImageStage</string>
   <key>CFBundleIdentifier</key>
   <string>com.taehui.imagestage</string>
   <key>CFBundleInfoDictionaryVersion</key>
