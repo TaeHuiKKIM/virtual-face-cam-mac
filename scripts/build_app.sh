@@ -2,16 +2,15 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-APP="$ROOT/Virtual Face Cam.app"
+APP="$ROOT/Image Stage.app"
 RES="$APP/Contents/Resources"
 MACOS="$APP/Contents/MacOS"
 
 mkdir -p "$RES" "$MACOS"
-cp "$ROOT/mac_virtual_face_cam.py" "$RES/mac_virtual_face_cam.py"
-cp "$ROOT/requirements.txt" "$RES/requirements.txt"
+cp "$ROOT/image_stage.py" "$RES/image_stage.py"
 cp "$ROOT/scripts/launch.sh" "$RES/launch.sh"
-cp "$ROOT/scripts/app_executable.sh" "$MACOS/VirtualFaceCam"
+cp "$ROOT/scripts/app_executable.sh" "$MACOS/ImageStage"
 chmod +x "$RES/launch.sh"
-chmod +x "$MACOS/VirtualFaceCam"
+chmod +x "$MACOS/ImageStage"
 
 echo "Updated: $APP"
