@@ -9,6 +9,10 @@ final class CameraConfigStore: ObservableObject {
 
     private var currentConfig = VFCCameraConfig.fallback
 
+    init() {
+        loadExistingConfig()
+    }
+
     func copyImageAndSaveConfig(from sourceURL: URL, fillMode: VFCCameraConfig.FillMode) {
         guard let imageURL = VFCShared.imageURL(), let configURL = VFCShared.configURL() else {
             statusText = "App Group container is not available. Check signing settings."
@@ -63,6 +67,34 @@ final class CameraConfigStore: ObservableObject {
             lastUpdatedText = Date().formatted(date: .abbreviated, time: .shortened)
         } catch {
             statusText = "Could not update mode: \(error.localizedDescription)"
+        }
+    }
+
+    private func loadExistingConfig() {
+        guard let configURL = VFCShared.configURL(), let imageURL = VFCShared.imageURL() else {
+            return
+        }
+
+        if
+            let data = try? Data(contentsOf: configURL),
+            let config = try? JSONDecoder().decode(VFCCameraConfig.self, from: data)
+        {
+            currentConfig = config
+        }
+
+        guard FileManager.default.fileExists(atPath: imageURL.path) else {
+            return
+        }
+
+        selectedImageURL = imageURL
+        selectedImageName = "Saved source"
+        statusText = "Ready to render the saved image."
+
+        if currentConfig.updatedAt > 0 {
+            lastUpdatedText = Date(timeIntervalSince1970: currentConfig.updatedAt)
+                .formatted(date: .abbreviated, time: .shortened)
+        } else {
+            lastUpdatedText = "Saved source"
         }
     }
 }

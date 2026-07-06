@@ -9,7 +9,14 @@ enum VFCShared {
     static let defaultFPS = 30
 
     static func containerURL() -> URL? {
-        FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier)
+        if let appGroupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier) {
+            return appGroupURL
+        }
+
+        return FileManager.default
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+            .first?
+            .appendingPathComponent("VirtualFaceCam", isDirectory: true)
     }
 
     static func configURL() -> URL? {
